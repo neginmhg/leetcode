@@ -8,7 +8,7 @@
 
 **Tree-like structure**:
 
-- each lebel of recursion can represent a level in the tree and the base cases represent the leaf node.
+- each lebel of recursion can represent a level in the **tree** and the base cases represent the leaf node.
 
 **Backtracking**:
 

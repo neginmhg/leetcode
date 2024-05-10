@@ -41,11 +41,11 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
+        nums.sort()         #2pointer technique required SORTED array
         result=[]
         for i, n in enumerate(nums):
-            if i>0 and n==nums[i-1]:
-                continue
+            if i>0 and n==nums[i-1]:#making sure the new i is not the same as the old i
+                continue                #if the same then skip one loop
             l, r= i+1, len(nums)-1
             while l<r:
                 threeSum= n+ nums[l]+nums[r]
@@ -56,8 +56,8 @@ class Solution:
                 else:
                     result.append([n,nums[l],nums[r]])
                     l+=1
-                    while nums[l] == nums[l-1] and l<r:
-                        l+=1
+                    while nums[l] == nums[l-1] and l<r: #making sure the new L is not the same as the old L
+                        l+=1        #if same then go to next L
         return result
 
 s=Solution()

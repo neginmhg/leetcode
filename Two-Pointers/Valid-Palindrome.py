@@ -26,13 +26,13 @@ class Solution:
         #reverse the string and check if it's as same as the original
         newStr=""
         for c in s:
-            if c.isalnum():
+            if c.isalnum():         #isalnum checks for alphabet chars
                 newStr +=c.lower()
         print(newStr,newStr[::-1]) #amanaplanacanalpanama    ,    amanaplanacanalpanama
-        return newStr==newStr[::-1]
+        return newStr==newStr[::-1]     #str[::-1] reverses a string
     
     def isPalindrome2(self, s: str) -> bool:
-        l, r =0, len(s)-1
+        l, r =0, len(s)-1               #setup L and R
         while l<r:
            while l<r and not self.isalnum2(s[l]):
                l+=1
@@ -52,3 +52,16 @@ s=Solution()
 print(s.isPalindrome("A man, a plan, a canal: Panama")) #True
 
 print(s.isPalindrome2("A man, a plan, a canal: Panama")) #True
+
+
+"""
+lessons learnt:
+- To reverse a string(str) do -->           str[::-1]
+- To check if a char is alphabet do -->     c.isalnum()
+- To get ASCII value of a char do -->        ord(char)
+- To make sure a char is not a special char do -->
+        ord('A')<=ord(c)<=ord('Z') 
+        ord('a')<=ord(c)<=ord('z') 
+        ord('0')<=ord(c)<=ord('9')
+
+"""

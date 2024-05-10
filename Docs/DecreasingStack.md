@@ -1,5 +1,9 @@
 # 3. **Monotonically Decreasing Stack**
 
+### visualization:
+
+Bottom of stach(Biggest) [ [ ] .. [ ] .. [ ] .. [ ] .. [ ] ] Top of stack(Tiny)
+
 ### Overview
 
 <h2>Smallest element at the top.</h2>
@@ -18,7 +22,8 @@ It maintains a stack of elements where each element is smaller than the elements
 2.  **Iterate Through the Array/List**: For each element in the array/list:
     - Compare the current element with the top element of the stack.
     - If the current element is smaller, push it onto the stack.
-    - If the current element is larger, pop elements from the stack until the condition is met, then push the current element onto the stack.
+    - If the current element is larger, pop elements from the stack until the condition is met, then push the current element onto the stack
+      (this ensures the biggest always resides at the bottom ).
 3.  **Process Remaining Elements**: After iterating through all elements, any remaining elements in the stack can be processed as necessary.
 
 ### Example Applications
@@ -33,7 +38,7 @@ It maintains a stack of elements where each element is smaller than the elements
 stack = []
 for current_element in elements:
    while stack and condition(stack[-1], current_element):
-      stack.pop()
+      stack.pop()    #ex:  pop whenever current_element is bigger than top of the stack
    stack.append(current_element)
 ```
 

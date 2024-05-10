@@ -7,3 +7,5 @@ The terms "two pointers" and "sliding window" are often used interchangeably in 
 # 3. **Monotonically Decreasing Stack**
 
 # 4. **Recursion**
+
+# 5. **Binary Search**
