@@ -31,8 +31,8 @@ class Solution:
             if prices[l]< prices[r]:
                 profit=prices[r]-prices[l]
                 maxProfit=max(profit,maxProfit)
-            else: #prices[l]> prices[r] price of buy is higher than sell, we are in loss
-                l=r
+            else: #prices[l]> prices[r] price of buy is higher than sell, we would be in loss
+                l=r #so, let change the buy to r since r is cheaper
             r+=1
         return maxProfit
 s=Solution()

@@ -29,8 +29,8 @@ class Solution:
             countEachChar[s[r]]=countEachChar.get(s[r],0) +1
             if((r-l+1)- max(countEachChar.values()) > k):  #if not valid, then move left by one
                 countEachChar[s[l]]-=1    #decrease the count of the char by 1
-                l+=1
-            res=max(r-l+1, res)
+                l+=1                #reduce the window
+            res=max(r-l+1, res)         
         return res
     
     def optimized_characterReplacement(self, s: str, k: int) -> int:
@@ -55,3 +55,12 @@ s=Solution()
 print(s.characterReplacement("AABABBA",1))
 print(s.optimized_characterReplacement("AABABBA",1))
 
+
+
+"""
+Lessons learned:
+- to get the value of a key in map use .get  --> myMap.get(KEY,0)
+- In sliding window we set l=0 then loop with r from 0 to length.
+- We store fequency of each r in map
+- Getting maximum key value from a map --> max(myMap.values()) 
+"""
