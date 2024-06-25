@@ -1,3 +1,11 @@
+# Full binary tree
+
+All nodes the binary tree have either 0 or 2 children
+
+# Complete binary tree
+
+All levels of the tree are filled except the last level which may be filled from the left
+
 # Explanation of Returning `-1` in Binary Tree Depth Calculation
 
 In the context of calculating the depth of nodes in a binary tree, returning `-1` is a convention often used to represent the base case where a node is `None` (or `null` in other programming languages). This convention is crucial for accurately computing depths and path lengths within binary trees. Here's why `-1` is chosen:
