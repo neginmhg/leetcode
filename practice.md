@@ -57,9 +57,31 @@
 - #### Generate parenthesis
 
 - ### dailyTemperatures
+
   - use monotonically decreasing stack
   - Initialize: Use a stack to store indices and an array `res` for results.
   - Iterate: For each temperature, pop from the stack until the current temperature is not greater than the temperature at the stack's top index.
     - top of stack should have coldest temp
   - Update Result: Set the result for each popped index to the difference between the current index and the popped index.
   - Push Index: Append the current index to the stack and continue.
+
+- ### Car fleet:
+
+  - Pair and Sort Combine car positions & speeds into pairs, then sort by position in descending order to handle cars starting from the furthest position first.
+  - Calculate Time: Compute the time each car needs to reach the target using `(target - p) / s`.
+  - Use a Stack: Track the time to reach the destination for the last car in each fleet using a stack; push a new time if it forms a new fleet.
+    - no pops.
+  - Count Fleets The number of unique times in the stack represents the number of car fleets arriving at the destination.
+    - return len of stack
+
+- ### Largest rectangle histogram:
+  - Stack for Indices and Heights: Use a stack to keep track of bar indices and heights to efficiently calculate rectangle areas as heights decrease.
+  - Pop and Calculate Areas: When encountering a shorter bar, pop from the stack and calculate possible rectangle areas using the height of the popped bar, updating the maximum area found.
+  - Push Current Bar: Push the current bar's height and its starting index onto the stack, adjusting the starting index if necessary when popping bars.
+  - Final Area Calculation: After processing all bars, calculate the area for any remaining bars in the stack, ensuring to consider rectangles extending to the end of the histogram.
+
+## Binary search
+
+- used for searching for a specific element in a sorted array.
+- set up l=0 r=len(arr)-1 and mid =l+r//2 then while l<=r: condition to compare target with arr[mid], adjust l and r based on m+1 or m-1
+- 
