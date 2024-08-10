@@ -22,21 +22,21 @@ from typing import List
 #value of 1 index is 100    (count of 100 is 1)
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count={} #count each int
-        freq=[[] for i in range(len(nums)+1)]
-        print(freq) #[[], [], [], [], [], [], []]
+        "initialization"
+        count={} #map each int
+        freq=[[] for i in range(len(nums)+1)]     #[[], [], [], [], [], [], []]
         
+        "populate map"
         #count each int and store in dict
         for n in nums:
-            count[n]=count.get(n,0)+1
-        print(count) #{1: 3, 2: 2, 3: 1}
+            count[n]=count.get(n,0)+1            #{1: 3, 2: 2, 3: 1}
         
+        "populate bucket"
         #turn dict into bucket sort
         for key, val in count.items():
-            freq[val].append(key)
-        print(freq) #[[], [3], [2], [1], [], [], []]
+            freq[val].append(key)#[[], [3], [2], [1], [], [], []]
         
-        
+        "retrive the last k items"
         #get the last k frequents
         result=[]
         for i in range(len(freq)-1,0,-1):

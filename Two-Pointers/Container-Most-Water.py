@@ -30,7 +30,7 @@ class Solution:
             elif height[l] > height[r]:
                 r-=1
             else:
-                l+=1 #or r-=1 , does'nt matter just move a pointer
+                l+=1 #or r-=1 , doesn't matter just move a pointer
 
         return result
 

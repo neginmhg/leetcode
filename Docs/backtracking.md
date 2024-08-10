@@ -1,20 +1,29 @@
 # Backtracking
 
-Backtracking is a general algorithm for finding all (or some) solutions to computational problems, especially those involving combinatorial optimization. It incrementally builds candidates to the solutions and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.
+### Whenever you see words like:
 
-### Key Concepts of Backtracking
+- generate all
+- compute all
+- exhaust all decisions
+- possiblities
+- combinations
 
-1. **Choices:** The set of possible decisions you can make at each step.
-2. **Constraints:** The rules that must be followed for the decisions.
-3. **Goal:** The condition that identifies a complete solution.
+Backtracking is a general **RECURSSION** algorithm for finding all (or some) solutions to computational problems, especially those involving **combinatorial** optimization. It incrementally builds candidates to the solutions and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.
+
+### 3 things to figure out when doing backtracking
+
+1. **Choices:** The set of possible decisions/POSSIBILITIES you can make at each step.
+2. **Constraints:** The rules/CONDITIONS that must be followed for the decisions.
+3. **Goal:** The condition/BASE CASE that identifies a complete solution.
 
 ### Steps to Implement Backtracking
 
 1. Choose a candidate.
 2. Check if the candidate leads to a solution.
 3. If a solution is found, return or store it.
-4. If not, discard the candidate and backtrack.
+4. If not, discard/POP/remove/etc the candidate and backtrack.
 5. Repeat until all candidates are exhausted.
+   <br>
 
 ### Example Problems
 

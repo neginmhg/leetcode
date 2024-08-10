@@ -20,7 +20,7 @@ There may exists other ways to achieve this answer too.
 """
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        countEachChar={}   #hashmap to store frequency of each char
+        countEachChar={}   #hashmap to store frequency of each char IN WINDOW
         res=0   #result for max length
 
         #sliding window by having left=0 and right looping from 0 to length.

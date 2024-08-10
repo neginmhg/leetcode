@@ -31,7 +31,7 @@ class Solution:
         res=0
         for right in range(len(s)):
             print(left,right,s[left],s[right],charSet)
-            while s[right] in charSet:      #if find duplicate then remove all lefts
+            while s[right] in charSet: #if find duplicate then remove until duplicate char is removed
                 #print(s[left],s[right],charSet)
                 charSet.remove(s[left])     #remove the left pointer from set
                 left+=1
