@@ -1,4 +1,4 @@
-"""
+"""[easy]
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 
  
@@ -32,25 +32,25 @@ from typing import Optional
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]: # type: ignore
-         # Initialize previous pointer to None
-        prev = None
-        
-        # Initialize current pointer to the head of the list
-        current = head
+
+
+        # ---- we need 2 pointers prev and current ------
+        prev = None      # Initialize previous pointer to None
+        current = head  # Initialize current pointer to the head of the list
         
         # Traverse the list
         while current:
             # Store the next node
             next_node = current.next
             
-            # Reverse the current node's pointer
-            current.next = prev
+            #reverse direction
+            current.next = prev # Reverse the current node's pointer
             
-            # Move the previous pointer to the current node
-            prev = current
-            
-            # Move the current pointer to the next node
-            current = next_node
+            #---- move pointers ------
+            prev = current    # Move the prev pointer to the current node
+            current = next_node # Move the current pointer to the next node
         
+
+
         # At the end, prev will be the new head of the reversed list
         return prev

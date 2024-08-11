@@ -84,4 +84,49 @@
 
 - used for searching for a specific element in a sorted array.
 - set up l=0 r=len(arr)-1 and mid =l+r//2 then while l<=r: condition to compare target with arr[mid], adjust l and r based on m+1 or m-1
-- 
+
+## Linked List
+
+- reverse linkedlist
+  - have 2 pointers: prev=None and current=head
+  - iterate (while current):
+    - save current.next in nextNode
+    - switch direction current.next=prev
+    - move pointers: prev = current and current=nextNode
+- merge 2sorted linked list in O(n):
+  - one dummy node created (&saved as tail) for result
+  - traverse both and compare vals
+    - which ever smaller, save to dummy next
+    - update list1/2 = list1/2.next
+    - update result pointer tail=tail.next
+  - once traverse done, then check if list1: else if list2
+    - put the remaining in tail.next=list1 or tail.next=list2
+- Reorder List
+  - Find the Middle: Use the two-pointer technique (slow and fast pointers) to locate the middle of the linked list, splitting it into two halves.
+  - Reverse the Second Half: Reverse the second half of the list in-place by changing the `next` pointers of its nodes.
+  - Merge the Two Halves: Merge the first half and the reversed second half by alternately linking nodes from each half.
+- Remove Nth node from end
+
+  - Create Distance: Use two pointers (left and right) to create a gap of n nodes between them by moving the right pointer n steps ahead.
+  - Traverse to End: Move both left and right pointers together until right reaches the end of the list. At this point, left will be right before the node to be removed.
+  - Remove Node: Update the next pointer of left to skip the node to be removed, effectively deleting it from the list
+    - left.next= left.next.next
+  - Return Head: Return the modified list starting from dummy.next to handle edge cases like removing the head node.
+
+- Deep copy a linked list:
+  - Initialize hashmap
+  - Iterate over the old linkedin list (cur=head):
+    - Populate hashmap by creating new Node() for each old node
+  - Again, Iterate over the old linked list ,set cur =head
+    - this time get each new Node out of the map and set the connections:
+      - .next and .random need to be set
+  - Return map[head]
+- Find cycle in linkedlist<br>
+  `slow, fast =head, head` <br>
+  `while fast and fast.next:`<br>
+  `slow = slow.next`<br>
+  `fast =fast.next.next`<br>
+  `if slow == fast:`<br>
+  ` return True`<br>
+  `return False`<br>
+  - Floyd's Tortoise and Hare algorithm, also known as the cycle detection algorithm, is a pointer algorithm that uses two pointers which move at different speeds to detect a cycle in a sequence of values. This algorithm is commonly used in problems involving linked lists to detect if there's a cycle in the list, but it can also be applied to other scenarios where cycle detection is needed.

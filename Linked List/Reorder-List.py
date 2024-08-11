@@ -40,7 +40,7 @@ class Solution:
         #find middle
         #Use the two-pointer technique (slow and fast pointers) to find the middle of the linked list.
         #How it works: The slow pointer moves one step at a time, while the fast pointer moves two steps. By the time fast reaches the end, slow will be at the middle of the list.
-        slow , fast = head, head.next
+        slow , fast = head, head
         while fast and fast.next:
             slow=slow.next
             fast=fast.next.next
@@ -49,8 +49,8 @@ class Solution:
         #Reverse the second half of the list starting from the node after the middle.
         #How it works: Use a standard list reversal technique. Iterate through the second half, reversing the links as you go. prev will eventually point to the new head of the reversed second half.
         second =slow.next #this is the middle point
-        prev=None
         slow.next= None
+        prev=None
         while second:
             tmp=second.next
             second.next=prev
