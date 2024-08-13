@@ -93,10 +93,10 @@
     - save current.next in nextNode
     - switch direction current.next=prev
     - move pointers: prev = current and current=nextNode
-- merge 2sorted linked list in O(n):
+- merge 2 sorted linked list in O(n):
   - one dummy node created (&saved as tail) for result
   - traverse both and compare vals
-    - which ever smaller, save to dummy next
+    - which ever smaller, save to dummy.next
     - update list1/2 = list1/2.next
     - update result pointer tail=tail.next
   - once traverse done, then check if list1: else if list2
@@ -129,4 +129,25 @@
   `if slow == fast:`<br>
   ` return True`<br>
   `return False`<br>
+
   - Floyd's Tortoise and Hare algorithm, also known as the cycle detection algorithm, is a pointer algorithm that uses two pointers which move at different speeds to detect a cycle in a sequence of values. This algorithm is commonly used in problems involving linked lists to detect if there's a cycle in the list, but it can also be applied to other scenarios where cycle detection is needed.
+
+- Find duplicate number with constant memory(O(1)):
+
+  - You have an array where each element is within a specific range.
+  - The array is meant to represent a linked list where indices are used to point to the next node.
+  - There is exactly one cycle in this "linked list" structure, which represents the duplicated number.
+  - Floyd's Tortoise and Hare Algorithm:
+    - Phase 1: Detecting the Cycle
+    - Phase 2: Finding the Entrance to the Cycle which would be the dup
+
+- Merge K Sorted Linked Lists:
+
+  - 1. Use a **Min-Heap** Create a min-heap to keep track of the smallest elements from each linked list.
+  - 2. Add **Head Nodes** Insert the first node of each linked list into the min-heap.
+  - 3. Build **Result** List: Use a dummy node to start a new linked list.
+  - 4. Process Nodes:
+    - **Pop** the Smallest Node: Remove the smallest node from the heap.
+    - **Create Node and Connect**: Create a new node with this smallest value and connect it to the result list.
+    - **Push Next** Node: If the removed node has a next node, add that next node to the heap so it can be processed in the next iteration.
+  - 5. Return the New List: The final merged linked list starts after the dummy node.

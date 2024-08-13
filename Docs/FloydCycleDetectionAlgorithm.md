@@ -5,10 +5,15 @@ Floyd's Tortoise and Hare algorithm, also known as Floyd's cycle-finding algorit
 ### Concept
 
 The algorithm uses two pointers, often referred to as the "tortoise" and the "hare", which move through the linked list at different speeds. The tortoise moves one step at a time, while the hare moves two steps at a time.
+TWO STEPS TO FOLLOW
 
-1. **Detection of Cycle**: If there's a cycle in the linked list, eventually the hare will meet the tortoise within the cycle. This is because the hare moves faster and will catch up with the tortoise eventually if there's a cycle.
-
-2. **Finding the Entrance of the Cycle**: Once the cycle is detected, resetting one pointer to the beginning of the list and moving both pointers at the same speed will eventually lead them to the entrance of the cycle. This is a consequence of mathematical analysis and is not immediately intuitive.
+1. **Detection of Cycle (find if cycle exists)**: If there's a cycle in the linked list, eventually the hare will meet the tortoise within the cycle. This is because the hare moves faster and will catch up with the tortoise eventually if there's a cycle.
+   - Initialize two pointers, tortoise and hare.
+   - Move tortoise by one step and hare by two steps in each iteration.
+   - When tortoise and hare meet, a cycle is detected.
+2. **Finding the Entrance of the Cycle (find the first element of cycle)**: Once the cycle is detected, resetting one pointer to the beginning of the list and moving both pointers at the same speed will eventually lead them to the entrance of the cycle. This is a consequence of mathematical analysis and is not immediately intuitive.
+   - Initialize another pointer finder at the start of the array.
+   - Move both finder and tortoise one step at a time until they meet. The meeting point is the start of the cycle, which corresponds to the repeated number.
 
 ### Application
 

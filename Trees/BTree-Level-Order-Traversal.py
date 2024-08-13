@@ -33,12 +33,16 @@ class Solution:
         
         q= collections.deque([root])
         result=[]
+        # Continue processing until the queue is empty/all levels done
         while q:
+            # Iterate through all nodes at the current level
             #starting a new level
             level=[]
             for n in range(len(q)):
                 node =q.popleft()
-                level.append(node.val)
+                level.append(node.val) #pop and add this level nodes to level
+
+                #populate the next level (left and right into q)
                 if node.left:
                     q.append(node.left)
                 if node.right:

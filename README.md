@@ -32,3 +32,12 @@ Understanding mutability helps in writing efficient and bug-free code:
 - **Functional Programming**: Immutability supports functional programming paradigms by facilitating data flow without unintended modifications.
 
 In summary, knowing which objects are mutable and which are immutable allows you to make informed decisions about data management in Python.
+
+# Functions to remember:
+
+- Counter: Count each task and store the counts in a hashmap
+    - from typing import Counter, List
+    - tasks = List[str]
+    - count = Counter(tasks)
+- Create a max heap by negating the counts (since heapq is a min heap by default)
+    - maxHeap = [-cnt for cnt in count.values()]

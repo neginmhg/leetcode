@@ -33,7 +33,7 @@ class Solution:
         #recursive DFS
         if not root:
             return 0
-        return 1 +max(self.maxDepth(root.left),self.mxDepth(root.right))     
+        return 1 +max(self.maxDepth(root.left),self.maxDepth(root.right))     
     
     def maxDepth2(self, root: Optional[TreeNode]) -> int:
         #BFS and queue

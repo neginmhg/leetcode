@@ -38,10 +38,10 @@ class Solution:
                 break
         
         # Step 2: Find the entrance of the cycle.
-        slow = nums[0]
-        while slow != fast:
+        finder = nums[0]
+        while finder != slow:
+            finder = nums[finder]
             slow = nums[slow]
-            fast = nums[fast]
         
         return slow
 
