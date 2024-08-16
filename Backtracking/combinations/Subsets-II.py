@@ -23,7 +23,7 @@ class Solution:
         nums.sort()  # Step 1: Sort the list to handle duplicates easily.
 
         def backtrack(i, subset):
-            # Base case: if we have considered all elements
+            # Base case: we reached leaf (we are on last level)
             if i == len(nums):
                 res.append(subset[::])  # Add a copy of the current subset to the results.
                 return
@@ -37,7 +37,7 @@ class Solution:
             while i + 1 < len(nums) and nums[i] == nums[i + 1]:
                 i += 1  # Move to the next distinct element
             
-            # Explore subsets without including nums[i]
+            # Explore subsets without nums[i]
             backtrack(i + 1, subset)  # Explore subsets excluding nums[i]
 
         backtrack(0, [])  # Start with an empty subset and from the 0th index

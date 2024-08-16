@@ -9,40 +9,52 @@ Your task is to fill each empty room with the distance to its nearest gate. If i
 """
 
 from collections import deque
+from typing import List, Set, Tuple
 
-def walls_and_gates(rooms):
-    if not rooms or not rooms[0]:
-        return
-    
-    m, n = len(rooms), len(rooms[0])
-    INF = 2**31 - 1
-    queue = deque()
-
-    # Add all gates to the queue
-    for i in range(m):
-        for j in range(n):
-            if rooms[i][j] == 0:
-                queue.append((i, j))
-    
-    # Directions for moving up, down, left, right
-    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-    
-    # BFS from all gates
-    while queue:
-        x, y = queue.popleft()
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < m and 0 <= ny < n and rooms[nx][ny] == INF:
-                rooms[nx][ny] = rooms[x][y] + 1
-                queue.append((nx, ny))
+class Solution:
+    def walls_and_gates(self, rooms: List[List[int]]) -> None:
+        """
+        Fill each empty room with the distance to its nearest gate.
+        If it is impossible to reach a gate, the room remains INF.
+        """
+        if not rooms or not rooms[0]:
+            return
+        
+        # Constants
+        ROWS, COLS = len(rooms), len(rooms[0])
+        
+        # Initialize the queue with all gates' positions
+        queue = deque()
+        visited = set()  # Set to track visited rooms
+        
+        for r in range(ROWS):
+            for c in range(COLS):
+                if rooms[r][c] == 0:
+                    queue.append((r, c))
+                    visited.add((r, c))  # Mark gates as visited
+        
+        # Directions for moving in the grid: right, down, left, up
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        
+        # Perform BFS from all gates
+        while queue:
+            r, c = queue.popleft()  # Get the current gate position
+            for dr, dc in directions:
+                nr, nc = r + dr, c + dc  # Calculate the neighbor's position
+                if 0 <= nr < ROWS and 0 <= nc < COLS and (nr, nc) not in visited:
+                    rooms[nr][nc] = rooms[r][c] + 1  # Update distance to nearest gate
+                    queue.append((nr, nc))  # Add neighbor to the queue for further processing
+                    visited.add((nr, nc))  # Mark the neighbor as visited
 
 # Example usage
-rooms = [
-    [2147483647, -1, 0, 2147483647],
-    [2147483647, 2147483647, 2147483647, -1],
-    [2147483647, -1, 2147483647, -1],
-    [0, -1, 2147483647, 2147483647]
-]
-
-walls_and_gates(rooms)
-print(rooms)
+if __name__ == "__main__":
+    rooms = [
+        [2147483647, -1, 0, 2147483647],
+        [2147483647, 2147483647, 2147483647, -1],
+        [2147483647, -1, 2147483647, -1],
+        [0, -1, 2147483647, 2147483647]
+    ]
+    
+    solution = Solution()
+    solution.walls_and_gates(rooms)
+    print(rooms)

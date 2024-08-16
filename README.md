@@ -36,8 +36,28 @@ In summary, knowing which objects are mutable and which are immutable allows you
 # Functions to remember:
 
 - Counter: Count each task and store the counts in a hashmap
-    - from typing import Counter, List
-    - tasks = List[str]
-    - count = Counter(tasks)
+  - from typing import Counter, List
+  - tasks = List[str]
+  - count = Counter(tasks)
 - Create a max heap by negating the counts (since heapq is a min heap by default)
-    - maxHeap = [-cnt for cnt in count.values()]
+  - maxHeap = [-cnt for cnt in count.values()]
+- Whenever you want to handle/avoid duplicates
+
+  - consider using set()
+  - sort() the array and then handle dup easier
+
+- Intersection operator
+  - set1 = {1, 2, 3, 4}
+  - set2 = {3, 4, 5, 6}
+  - Find the intersection and convert to a list using & operator
+  - intersection_list = list(set1 & set2)
+  - or use --> intersection_list = list(set1.intersection(set2))
+  - print(intersection_list) # Output: [3, 4]
+- Union operator
+  - set1 = {1, 2, 3, 4}
+  - set2 = {3, 4, 5, 6}
+  - Find the union and convert to a list using | operator
+  - union_list = list(set1 | set2)
+  - or use --> union_list = list(set1.union(set2))
+  - print(union_list) # Output: [1, 2, 3, 4, 5, 6]
+- pair=[[p,s] for p,s in zip(position,speed)]
