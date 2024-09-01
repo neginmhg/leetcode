@@ -22,4 +22,46 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 from typing import List
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # Create a map to store the list of prerequisites (neighbors) for each course
+        neighborMap = { i :[] for i in range(numCourses)}
         
+        # Populate the map with the prerequisites for each course
+        for course, prereq in prerequisites:
+            neighborMap[course].append(prereq)
+        
+        # Track the visit state of each node (0 = unvisited, 1 = visiting, 2 = visited)
+        visitState = [0] * numCourses # index:course | value:status
+
+        # Function to detect a cycle in the course dependency graph
+        def DetectCycle(course):
+            # Base case: If the course is currently being visited, a cycle is detected
+            if visitState[course] == 1:
+                return False
+            
+            # If the course has already been fully visited, no need to check again
+            if visitState[course] == 2:
+                return True
+            
+            # Mark the course as being visited
+            visitState[course] = 1
+            
+            # Perform DFS on all neighbors (prerequisite courses)
+            for n in neighborMap[course]:
+                noCycle = DetectCycle(n)
+                # If a cycle is detected in any neighbor, return False
+                if not noCycle:
+                    return False
+            
+            # Mark the course as fully visited
+            visitState[course] = 2
+            return True
+        
+        # Check each course to see if there's a cycle
+        for c in range(numCourses):
+            noCycle = DetectCycle(c)
+            # If a cycle is detected, return False
+            if not noCycle:
+                return False
+            
+        # If no cycles are detected in any course, return True
+        return True
