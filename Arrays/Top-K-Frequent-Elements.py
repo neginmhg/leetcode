@@ -31,11 +31,12 @@ class Solution:
         for n in nums:
             count[n]=count.get(n,0)+1            #{1: 3, 2: 2, 3: 1}
         
-        "populate bucket"
+        "populate bucket" - "sort by frequency"
         #turn dict into bucket sort
         for key, val in count.items():
             freq[val].append(key)#[[], [3], [2], [1], [], [], []]
-        
+        "bucket List: freq is a list where the index represents the frequency of elements. This means freq[i] contains all elements that appear i times."
+
         "retrive the last k items"
         #get the last k frequents
         result=[]

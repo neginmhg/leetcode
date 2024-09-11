@@ -48,8 +48,10 @@ class Solution:
 
         stack = []
         for p, s in pair:
-            time_to_target = (target - p) / s if s != 0 else float('inf')  # Calculate time to reach target, handle zero speed
+            time_to_target = (target - p) / s
             if not stack or time_to_target > stack[-1]:  # Check if current car can form a new fleet
                 stack.append(time_to_target)
         
         return len(stack)  # Return length of stack, representing number of car fleets
+    
+    "Determine Fleets:Use a stack to keep track of the latest time to reach the target for each fleet. If a car's time to reach the target is greater than the time of the last fleet on the stack, it means this car will form a new fleet (because it will arrive later than the previous fleet).If not, it will join the existing fleet (the stack's top time is the maximum time needed)."

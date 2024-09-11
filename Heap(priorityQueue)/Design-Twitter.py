@@ -39,7 +39,7 @@ class Twitter:
     def __init__(self):
         self.count=0
         self.tweetMap=defaultdict(list)
-        self.followMap=defaultdict(set)
+        self.followMap=defaultdict(set) #hashset has O(1) add/remove but list had O(n)
     def postTweet(self, userId: int, tweetId: int) -> None:
         self.tweetMap[userId].append([self.count, tweetId])
         self.count -=1     #set it negative for maxheap in getNewsFeed to work
