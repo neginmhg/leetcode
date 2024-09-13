@@ -197,3 +197,62 @@ steps:
    - [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
    - [Coin Change](https://leetcode.com/problems/coin-change/)
    - [Partition Equal
+  
+
+The decision of whether to have a `dp` array of size `n` or `n + 1` depends on whether your dynamic programming (DP) solution needs to account for **"nothing"** or **"empty"** state scenarios, in addition to processing the full range of elements. Let's break it down:
+
+### Use `dp` size `n + 1` when:
+You need to track the **state before processing the first element**, often represented as an **empty string** or **base case**. This extra state helps handle cases where no characters or elements have been processed yet.
+
+#### Examples where `dp` size is `n + 1`:
+
+1. **Decoding ways (like this problem)**:
+   - You need a `dp[0]` to represent the **empty string** (no characters processed yet). This allows you to initialize the base case (1 way to decode nothing).
+   - Then you process from `dp[1]` to `dp[n]` to compute the number of ways to decode up to each character.
+   
+   For string `"226"` (length `n = 3`), you need a `dp` of size `n + 1 = 4` to account for:
+   ```
+   dp = [dp[0], dp[1], dp[2], dp[3]]  # Size = n + 1
+   ```
+
+2. **Fibonacci or other recurrence relations with base cases**:
+   - You often define `dp[0]` as part of your base case (e.g., Fibonacci with `dp[0] = 0` and `dp[1] = 1`).
+   - The extra space (`n + 1`) ensures you can define this base case and still compute values for the full range from `1` to `n`.
+
+3. **Knapsack problem**:
+   - The size of `dp` is often `n + 1` when you need to include a "0 capacity" base case (when the knapsack is empty).
+   - Similarly, in **subset sum** problems, you may need `dp[0]` to represent the case when no elements have been selected yet (like a sum of 0).
+
+#### Why use `n + 1`?
+- The **extra `dp[0]`** position is crucial for handling base cases, like the **empty string** or **no elements** processed. Without this, the recurrence relation would fail to initialize correctly.
+
+---
+
+### Use `dp` size `n` when:
+You only need to track the states **for each element** and don’t care about an "empty" or "nothing" state. In other words, you only need to compute values for the elements directly and don't need a base case for "zero elements."
+
+#### Examples where `dp` size is `n`:
+
+1. **Maximum subarray sum (Kadane's Algorithm)**:
+   - Here, you only care about the largest sum ending at each position `i`, so you don't need a `dp[0]` for an empty array.
+   - For an array of size `n`, you would use a `dp` array of size `n`:
+     ```
+     dp = [dp[0], dp[1], ..., dp[n-1]]  # Size = n
+     ```
+
+2. **Longest increasing subsequence**:
+   - The `dp[i]` represents the length of the longest subsequence that ends at index `i`. There’s no "empty sequence" base case needed, so a `dp` array of size `n` suffices.
+
+3. **Other single-pass problems**:
+   - If you are processing elements directly in a single pass (e.g., finding the max or min value up to index `i`), you don’t need an extra slot for an "empty" state.
+
+#### Why use `n`?
+- If you don’t need to consider an "empty state" or "base case," having an extra slot is unnecessary. You just need to track the state up to the `n`-th element directly, and a `dp` array of size `n` is sufficient.
+
+---
+
+### Summary:
+- Use **size `n + 1`** when you need to account for a **base case** like an empty string, no elements selected, or a "0th" state.
+- Use **size `n`** when you only care about the **elements themselves** and don’t need a base case for zero elements.
+
+.
