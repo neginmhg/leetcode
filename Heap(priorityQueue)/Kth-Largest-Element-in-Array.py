@@ -18,7 +18,7 @@ Output: 4
 
 """
 from typing import List
-
+import heapq
 
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
@@ -54,3 +54,24 @@ class Solution:
 
         # Initiate quick select from the start to end of the array
         return quickSelect(0, len(nums) - 1)
+
+    
+    def findKthLargest3(self, nums: List[int], k: int) -> int:
+        # start with heap of size k
+        heap = nums[:k]
+        heapq.heapify(heap)  # O(k)
+        
+        # Iterate over the remaining elements in the array
+        for num in nums[k:]:
+            if num > heap[0]:  # Compare with the smallest element in the heap (root)
+                heapq.heappushpop(heap, num)  # Push the new big element and pop the smallest
+        
+        # The root of the heap is the k-th largest element
+        return heap[0]
+    """
+    This should help you remember:
+    1. Start with a heap of size `k`.
+    2. Sweep through the array, comparing elements with the smallest (root of the heap).
+    3. If its bigger, replace the root.
+    4. At the end, the root is the k-th largest element!
+    """ 
