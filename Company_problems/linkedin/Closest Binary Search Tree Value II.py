@@ -57,3 +57,17 @@ class Solution:
             inOrderT(node.right)
         inOrderT(root)
         return list(q)
+#In the best case, it only needs to visit a portion of the tree, potentially reducing the time complexity to O(log n + k). In the worst case, it still has O(n) time complexity, but the early stopping allows for significant pruning in many real-world cases.
+
+"""The total space complexity of the solution consists of two main components: space for the result storage (deque) and space for the recursion stack (or iterative traversal stack) during the in-order traversal.
+
+Components of Space Complexity:
+- Deque (or Result Storage) Space:
+We maintain a deque that stores at most k elements (the k closest values).
+This results in a space complexity of O(k) for storing the k closest values.
+
+- Recursion Stack Space (or Iterative Stack):
+The in-order traversal of the tree is performed recursively. The space required for the recursion stack is proportional to the height of the tree.
+In the worst case, for a highly skewed tree (where the tree behaves like a linked list), the recursion depth will be equal to the number of nodes, which results in O(n) space.
+In the best case, for a balanced binary search tree (BST), the height of the tree is O(log n), where n is the number of nodes.
+"""
