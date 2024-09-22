@@ -53,7 +53,12 @@ class WordDistance:
             else:
                 j+=1
         return minDis
-
+"""
+approach:
+1. We use a defaultdict(list) called indexMap to store the indices where each word occurs in wordsDict.
+2. to find shortest we get the indexList of each word,
+3. then do 2 pointers to find the min distance minDis = min(minDis, abs(3 - 0))
+"""
 #Time Complexity:
     #Initialization: O(n)
     #Shortest Distance Calculation: O(m + k)

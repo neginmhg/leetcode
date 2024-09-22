@@ -105,3 +105,27 @@ def topological_sort_dfs(graph):
 - **Topological Sort** is a way to order vertices in a DAG such that each vertex appears before any vertices to which it has outgoing edges.
 - It is used for various applications like task scheduling, course ordering, and build systems.
 - The two primary algorithms for topological sorting are Kahn's Algorithm (BFS-based) and the DFS-based Algorithm.
+
+# DFS vs. Kahn's Algorithm (Queue-Based):
+
+| **DFS (Stack)**                                                          | **Kahn’s Algorithm (Queue)**                                           |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| Uses **stack** and adds nodes to the stack in post-order                 | Uses a **queue** to process nodes with in-degree 0 first               |
+| Requires **reversing** the stack at the end to get the topological order | No need to reverse; nodes are added to the result in the correct order |
+| Easier to implement recursively                                          | More complex, but avoids reversing                                     |
+| Can handle **backtracking** scenarios naturally                          | More suited for real-time task scheduling problems                     |
+
+### Summary:
+
+- **DFS-based topological sort** uses a **stack**, and since nodes are processed in a post-order fashion (dependencies come last), we need to reverse the stack to get the correct topological order.
+- **Kahn’s Algorithm** uses a **queue** to process nodes with zero dependencies first, so the order is built directly without needing to reverse it.
+
+# When use **DFS-based topological sort** and **Kahn’s Algorithm**:
+
+| **DFS-Based Topological Sort**                                                               | **Kahn’s Algorithm (Queue-Based)**                                                          |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Best for **recursion-based problems** or problems that benefit from **post-order traversal** | Best for **iterative problems** or when you need **real-time task processing**              |
+| Useful for **cycle detection** in problems where backtracking is required                    | Effective for **cycle detection** in task scheduling scenarios                              |
+| **Handles strongly connected components** in problems like SCC detection                     | Useful when **processing dependencies in layers** (BFS-like)                                |
+| Requires **reversing** the stack to get topological order                                    | **No need to reverse**; directly generates topological order                                |
+| Example: Course scheduling, file compilation, dependency management                          | Example: Parallel job scheduling, real-time task processing, level-by-level problem solving |
