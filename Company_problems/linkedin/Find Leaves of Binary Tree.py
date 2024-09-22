@@ -55,17 +55,17 @@ class Solution:
     #post order dfs
         res=[]
         def getHeight(node):
-            if not node:
-                return -1
-            curHeight= max(getHeight(node.left), getHeight(node.right)) +1
-            # Ensure the result list has enough space for the current height
-            if curHeight == len(res):
-                res.append([])
-            
-            # Add the current node's value to its corresponding height level
-            res[curHeight].append(node.val)
-            
-            return curHeight
-        
+          if not node:
+              return -1        
+          curHeight= max(getHeight(node.left), getHeight(node.right)) +1
+          # Ensure the result list has enough space for the current height
+          if curHeight == len(res):
+              res.append([])
+          
+          # Add the current node's value to its corresponding height level
+          res[curHeight].append(node.val)
+          
+          return curHeight
+      
         getHeight(root)
         return res

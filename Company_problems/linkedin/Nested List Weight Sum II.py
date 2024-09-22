@@ -30,37 +30,56 @@ Inverse depth sum = (1*3 + 4*2 + 6*1) = 17.
 - The total number of integers in the nested list is in the range `[1, 50]`.
 - The depth of the nested list is less than or equal to 50.
 """
-#step1: traverse get the max depth
-#step2: traverse again andd calculate the invers sum
 from typing import List
 from collections import defaultdict, deque
 class Solution:
-    def depthSumInverse(self,nestedList: List[NestedInteger]) -> int:
-        if not nestedList:
-            return 0
-        maxDepth=0
-        depthSumMap=defaultdict(int) #depth:sum
-        q = deque([(nestedList, 1)])
-        #O(n)
-        while(q):
-            currentList, depth=q.popleft()
-            maxDepth=max(depth,maxDepth)
-            for element in currentList:
-                if element.isInteger():
-                    # Add to depth sum map if element is an integer
-                    depthSumMap[depth] = depthSumMap.get(depth, 0) + element.getInteger()
-                else:
-                    # If element is a list, enqueue it with incremented depth
-                    q.append((element.getList(), depth + 1))
-        
-        result=0
-        for d in depthSumMap:   #O(d)
-            s= depthSumMap[d]
-            result += s*(maxDepth-d+1)
-        return result
+    def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
+        max_depth = 1
+        sum_of_elements = 0
+        queue = deque(nestedList)
+        depth = 0
+        res = 0
 
+        while queue:
+            depth += 1
+            max_depth = max(max_depth, depth)
+            for _ in range(len(queue)):
+                nested = queue.popleft()
+                if nested.isInteger():
+                    val = nested.getInteger()
+                    res -= val * depth
+                    sum_of_elements += val
+                elif nested.getList():
+                    queue.extend(nested.getList())
+        res += sum_of_elements * (max_depth + 1)
+        return res
 
-#time complexity : O(n+d) since d<n ~ O(n)
-#space complexity: O(n+d) since d<n ~ O(n)
+#time complexity : O(n)
+#space complexity: O(n)
 
-#tricks: BFS, map, queu, isInteger()
+"""
+The `extend` method in Python is used to add multiple elements to a list (or any collection that supports it, like a deque). When you call `list.extend(iterable)`, it appends each element from the `iterable` to the end of the list.
+
+### Example:
+Here's a quick demonstration:
+
+```python
+# Using a list
+my_list = [1, 2, 3]
+my_list.extend([4, 5, 6])
+print(my_list)  # Output: [1, 2, 3, 4, 5, 6]
+
+# Using a deque
+from collections import deque
+my_deque = deque([1, 2, 3])
+my_deque.extend([4, 5, 6])
+print(my_deque)  # Output: deque([1, 2, 3, 4, 5, 6])
+```
+
+### Key Points:
+- **Add Elements**: It adds each element from the provided iterable to the end of the list or deque.
+- **In-place Modification**: Unlike `append`, which adds the entire iterable as a single element, `extend` iterates through the iterable and adds each element individually.
+- **No Return Value**: The `extend` method modifies the list in place and returns `None`.
+
+In the context of your code, using `extend` allows you to add all the elements of a nested list to the queue in one operation, making it efficient for processing each level of the nested structure.
+"""

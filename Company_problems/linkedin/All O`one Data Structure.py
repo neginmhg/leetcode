@@ -28,11 +28,11 @@ class AllOne:
         self.head.next = self.tail
         self.tail.prev = self.head
 
-    def _remove(self, node):
+    def _remove_node(self, node):
         node.prev.next = node.next
         node.next.prev = node.prev
 
-    def _insert_after(self, node, new_node):
+    def _insert_after_node(self, node, new_node):
         new_node.prev = node
         new_node.next = node.next
         node.next.prev = new_node
@@ -43,7 +43,7 @@ class AllOne:
             # If the key doesn't exist, insert it with count 1
             if self.head.next.count != 1:
                 new_node = Node(1)
-                self._insert_after(self.head, new_node)
+                self._insert_after_node(self.head, new_node)
             self.head.next.keys.add(key)
             self.key_node[key] = self.head.next
         else:
@@ -52,11 +52,11 @@ class AllOne:
             next_node = curr_node.next
             if next_node.count != curr_node.count + 1:
                 next_node = Node(curr_node.count + 1)
-                self._insert_after(curr_node, next_node)
+                self._insert_after_node(curr_node, next_node)
             next_node.keys.add(key)
             curr_node.keys.remove(key)
             if not curr_node.keys:
-                self._remove(curr_node)
+                self._remove_node(curr_node)
             self.key_node[key] = next_node
 
     def dec(self, key: str) -> None:
@@ -69,12 +69,12 @@ class AllOne:
             prev_node = curr_node.prev
             if prev_node.count != curr_node.count - 1:
                 prev_node = Node(curr_node.count - 1)
-                self._insert_after(curr_node.prev, prev_node)
+                self._insert_after_node(curr_node.prev, prev_node)
             prev_node.keys.add(key)
             self.key_node[key] = prev_node
         curr_node.keys.remove(key)
         if not curr_node.keys:
-            self._remove(curr_node)
+            self._remove_node(curr_node)
 
     def getMaxKey(self) -> str:
         if self.tail.prev == self.head:
