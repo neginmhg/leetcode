@@ -29,6 +29,9 @@ nums is a non-decreasing array.
 -109 <= target <= 109
 
 """
+#Two-pass Binary Search:
+    #First Pass: Locate the first occurrence of the target.
+    #Second Pass: Locate the last occurrence of the target.
 from typing import List
 
 class Solution:

@@ -38,12 +38,12 @@ from Trees import TreeNode
 class Solution:
     def closestKValues(root: TreeNode, k: int, target: float) -> List[int]:
         #in order traversal and a queue
-        q=deque    #store k closest to target
+        q=deque()    #store k closest to target
         def inOrderT(node):
             if not node:
                 return
             inOrderT(node.left)
-            
+            #q order left-to-right is furthest to closest to the target
             if(len(q)<k):
                 q.append(node.val)
             else:
@@ -71,3 +71,28 @@ The in-order traversal of the tree is performed recursively. The space required 
 In the worst case, for a highly skewed tree (where the tree behaves like a linked list), the recursion depth will be equal to the number of nodes, which results in O(n) space.
 In the best case, for a balanced binary search tree (BST), the height of the tree is O(log n), where n is the number of nodes.
 """
+import heapq
+class Solution2_with_HEAP:
+    def closestKValues(self, root: TreeNode, k: int, target: float) -> List[int]:
+            # A max-heap to keep track of the k closest values
+            max_heap = []
+            
+            def inOrderTraversal(node):
+                if not node:
+                    return
+                
+                inOrderTraversal(node.left)  # Traverse left subtree
+                
+                # Push the absolute difference and value into the max-heap
+                heapq.heappush(max_heap, (-abs(node.val - target), node.val))
+                
+                # If the heap exceeds size k, pop the largest (furthest) element
+                if len(max_heap) > k:
+                    heapq.heappop(max_heap)
+                    
+                inOrderTraversal(node.right)  # Traverse right subtree
+            
+            inOrderTraversal(root)  # Start in-order traversal
+            
+            # Extract the values from the max-heap
+            return [val for _, val in max_heap]
