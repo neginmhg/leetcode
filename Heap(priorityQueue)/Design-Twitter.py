@@ -79,3 +79,32 @@ class Twitter:
 # param_2 = obj.getNewsFeed(userId)
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
+
+"""
+The approach of initially adding only the last tweet of each user and then subsequently adding older tweets when popping them from the heap is efficient for several reasons:
+
+1. Efficiency and Minimizing Work
+Immediate Access to Recent Tweets: By adding only the most recent tweet of each followed user to the min-heap at the start, we minimize the initial workload. This means we only consider the latest tweet of each user, which is a small and manageable set, especially compared to potentially processing all tweets from every user.
+
+Dynamic Management of Tweets: As we pop the most recent tweet from the heap, we immediately check if older tweets are available for that user. This way, we dynamically manage the tweets in a lazy-loading fashion rather than loading everything at once.
+
+2. Maintaining Order
+Using the Min-Heap: The min-heap structure allows us to efficiently keep track of the most recent tweets across multiple users. By only adding the latest tweet initially, we ensure that the heap contains the most relevant information (the latest tweets) right away.
+
+Accessing Older Tweets: After popping the most recent tweet, we then check if older tweets exist for that user. By pushing the previous tweet back into the heap, we maintain the order of tweets because the heap will always give us the next most recent tweet available.
+
+3. Controlling the Number of Tweets
+Limiting to 10 Most Recent Tweets: This method helps efficiently control the number of tweets in the result. Since the user only needs to see the 10 most recent tweets, starting with the latest ones ensures that we reach that limit quickly without needing to process all tweets for each followed user.
+4. Avoiding Unnecessary Processing
+Reduce Unused Data: If we were to load all tweets from all followed users at the beginning, we might end up processing a lot of data that won't be included in the final result (only the 10 most recent tweets are needed). This approach ensures we only deal with the data that matters.
+Example
+Let's say User 1 follows User 2 and User 3:
+User 2 has tweets with IDs [1, 2, 3] (3 is the most recent).
+User 3 has tweets with IDs [4, 5] (5 is the most recent).
+In the first step, we add only [3 (count), 3 (tweetId), User 2, index of 2] and [5 (count), 5 (tweetId), User 3, index of 1] to the min-heap.
+
+After popping the latest tweet (let's say 5 from User 3), we then check if there are older tweets available. We find User 3's tweet with ID 4, and push that into the heap.
+Conclusion
+This strategy strikes a balance between efficiency and simplicity, allowing the code to focus on just the most relevant information (the latest tweets) while still maintaining the ability to retrieve additional tweets as necessary. By leveraging a min-heap, we ensure that the tweets are processed in the correct order, leading to an efficient and effective implementation of the Twitter-like functionality.
+
+"""

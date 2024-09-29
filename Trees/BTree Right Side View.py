@@ -51,3 +51,11 @@ class Solution:
             if rightMostNode is not None:
                 result.append(rightMostNode)
         return result
+
+
+
+"""
+Rightmost Node Logic: The logic for determining the rightmost node at each level relies on the order in which we process nodes (left to right). By the time we finish processing all nodes at a level, the last node we processed is guaranteed to be the rightmost node.
+
+Using a Queue: The queue allows us to maintain the order of nodes as we traverse the tree, making it easy to process level by level.
+"""

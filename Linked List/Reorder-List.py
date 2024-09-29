@@ -54,8 +54,8 @@ class Solution:
         while second:
             tmp=second.next
             second.next=prev
-            prev=second
-            second=tmp
+            prev=second #update prev
+            second=tmp  #update second
         
         #merge 2 halfs
         first,second= head, prev
@@ -63,4 +63,5 @@ class Solution:
             tmp1, tmp2 = first.next, second.next
             first.next = second
             second.next = tmp1
+            #move first and second pointers forward
             first, second = tmp1, tmp2

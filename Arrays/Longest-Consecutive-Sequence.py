@@ -20,14 +20,11 @@ class Solution:
         #turn the list into set to get rid of dups
         numsSet=set(nums)
         longest=0
-        count=0
         for n in numsSet:
-            count+=1
             if n-1 not in numsSet: # *** it will only process the starting numbers meaning 0 and 15
                 length=0
                 while n+length in numsSet:
                     length+=1
-                    count+=1
                 longest=max(length,longest)
         return longest
 
