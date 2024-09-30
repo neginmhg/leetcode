@@ -13,6 +13,87 @@ To handle these operations efficiently, especially PeekMax and PopMax, we can us
 Main Stack: To store the elements in the order they are pushed.
 Max Stack: To keep track of the maximum values. This stack will store pairs of values where the second element is the maximum value up to that point in the Main Stack."""
 
+
+from sortedcontainers import SortedDict
+
+class Node:
+    def __init__(self, val, prev = None):
+        self.val = val
+        self.prev = prev
+        self.next = None
+        
+class MaxStack:
+    def __init__(self):
+        self.hash = SortedDict()
+        self.root = None
+        self.end = None
+        
+    def push(self, x: int) -> None:
+        if not self.root:
+            self.root = Node(x, None)
+            self.end = self.root
+        else:
+            if not self.end: self.end = self.root
+            self.end.next = Node(x, self.end)
+            self.end = self.end.next
+        if x not in self.hash:
+            self.hash[x] = deque([self.end])
+        else:
+            self.hash[x].append(self.end)
+        
+    def pop(self) -> int:
+        x = self.end.val
+        self.end = self.end.prev
+        if self.end: self.end.next = None;
+        self.hash[x].pop()
+        if not self.hash[x]: self.hash.pop(x);
+        return x
+    
+    def top(self) -> int:
+        return self.end.val
+        
+    def peekMax(self) -> int:
+        return self.hash.keys()[-1]
+    
+    def popMax(self) -> int:
+        x = self.hash.keys()[-1]
+        topnode = self.hash[x].pop()
+        if topnode.prev and topnode.next:
+            p = topnode.prev
+            n = topnode.next
+            p.next = n
+            n.prev = p
+        if not topnode.prev:
+            self.root = topnode.next
+            if self.root:
+                self.root.prev = None
+        if not topnode.next:
+            self.end = self.end.prev
+            if self.end:
+                self.end.next = None
+        if not self.hash[x]:
+            self.hash.pop(x)
+        return x
+            
+            
+
+# Your MaxStack object will be instantiated and called as such:
+# obj = MaxStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.peekMax()
+# param_5 = obj.popMax()
+
+
+
+
+
+
+
+
+
+"""
 class MaxStack:
     def __init__(self):
         self.stack = []
@@ -58,3 +139,4 @@ class MaxStack:
             self.push(buffer.pop())
 
         return max_val
+"""

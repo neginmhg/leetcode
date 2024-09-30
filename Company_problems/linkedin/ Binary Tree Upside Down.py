@@ -57,3 +57,8 @@ class Solution:
         if not root:
             return None
         return dfs(root)
+
+
+"""
+Time Complexity: O(n), where n is the number of nodes in the tree because we visit each node once.
+Space Complexity: O(h), where h is the height of the tree due to the recursion stack."""

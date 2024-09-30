@@ -50,14 +50,18 @@ Thus, the final result is `[[4, 5, 3], [2], [1]]`.
 from Trees import TreeNode
 from typing import List
 class Solution:
-    def findLeaves(root: TreeNode) -> List[List[int]]:
-    # your code here
-    #post order dfs
+    def findLeaves(self, root: TreeNode) -> List[List[int]]:
+        #post order dfs to first do children then node 
         res=[]
         def getHeight(node):
           if not node:
               return -1        
-          curHeight= max(getHeight(node.left), getHeight(node.right)) +1
+          # Calculate height of left and right subtrees
+          leftHeight = getHeight(node.left)
+          rightHeight = getHeight(node.right)
+            
+          # Current node's height is the max of left and right subtree heights + 1
+          curHeight = max(leftHeight, rightHeight) + 1
           # Ensure the result list has enough space for the current height
           if curHeight == len(res):
               res.append([])
@@ -69,3 +73,9 @@ class Solution:
       
         getHeight(root)
         return res
+    
+
+#Memorization Tip:
+  #Post-order (L, R, Node).
+  #Compute height: max(left, right) + 1.
+  #Store by height: Add to res[height].
