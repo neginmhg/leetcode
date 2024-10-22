@@ -34,8 +34,10 @@ from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        #create dp array with length s+1, default as False
         dp = [False] * (len(s)+1)
 
+        #Base Case: empty strings can always be segmented
         dp[len(s)]=True
 
         for i in range(len(s)-1,-1,-1):
