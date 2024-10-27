@@ -13,7 +13,7 @@ Output: 9
 
 from typing import List
 
-# Solve this question without SROTING: since sorting has nlogn complexity 
+# Solve this question without SORTING: since sorting has nlogn complexity 
 # therefore it's not the most optimal solution
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:

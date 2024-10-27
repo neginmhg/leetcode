@@ -1,5 +1,6 @@
 """ [HARD]
-You are given an array of strings ideas where each string represents a word. A valid name can be formed by swapping the first letter of two different words in the list. However, you can only count the name as valid if it does not already exist in the list.
+You are given an array of strings ideas where each string represents a word. A valid name can be formed by swapping the first letter of two different words in the list. 
+However, you can only count the name as valid if it does not already exist in the list.
 
 Example:
 ideas = ["coffee", "donuts", "time", "toffee"]
