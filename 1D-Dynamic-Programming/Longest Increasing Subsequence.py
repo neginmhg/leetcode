@@ -1,4 +1,5 @@
-"""Given an integer array nums, return the length of the longest strictly increasing 
+"""Given an integer array nums, 
+return the length of the longest strictly increasing 
 subsequence
 .
 
@@ -26,7 +27,7 @@ Constraints:
  
 
 Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?"""
-
+from typing import List
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:

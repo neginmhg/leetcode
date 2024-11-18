@@ -1,9 +1,6 @@
 """
 Given a string s, return the longest 
-palindromic
- 
-substring
- in s.
+palindromic substring in s.
 
  
 
@@ -23,7 +20,9 @@ Constraints:
 1 <= s.length <= 1000
 s consist of only digits and English letters.
 """
-
+#Strategy:  A straightforward approach would involve checking all substrings to see 
+# if they're palindromic, but this approach is inefficient with  time complexity. 
+# A better solution involves using EXPAND AROUND CENTER
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         res=""
