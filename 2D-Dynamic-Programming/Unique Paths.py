@@ -26,3 +26,29 @@ Constraints:
 
 1 <= m, n <= 100
 """
+#Use cache for each position since we might visit it cache[i][j]
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        #bottom row will always have just 1s
+        # At the last row of the grid, the robot can only move right to reach the end. 
+        # Thus, all cells in this row have 1 unique path to the destination.
+        row = [1]* n        
+
+        #go to all row except last one
+        for i in range(m - 1):
+            newRow = [1] * n  # Initialize newRow with 1's.
+            for j in range(n - 2, -1, -1):  # Loop through the row from right to left.
+                newRow[j] = newRow[j + 1] + row[j]  # Update newRow[j] with the sum of the cell below and to the right.
+            row = newRow  # Move newRow to row for the next iteration.
+        return row[0]  # Return the number of paths from the top-left corner.
+
+    
+
+        #O(m*n) time complexity
+        #O(n) memory complexity
+
+"""
+The core idea is that for each cell in the grid, we compute how many unique paths there are to the destination. You can only move right or down, so at each position, the number of paths comes from two possible places:
+    The cell directly below (down).
+    The cell directly to the right.
+"""
