@@ -1,9 +1,11 @@
 Dynamic Programming (DP) is a powerful technique used to solve problems by breaking them down into simpler subproblems and storing the results of these subproblems to avoid redundant calculations. Here’s a comprehensive guide to help you tackle DP problems on LeetCode.
 DP= recursion +memoization()
-steps:
+steps: 
+<u>
 1. write the recursive equation
 2. write the base case 
 3. add memo to optimize answers
+</u>
 ### **Key Concepts of Dynamic Programming**
 
 1. **Overlapping Subproblems:**
@@ -255,4 +257,45 @@ You only need to track the states **for each element** and don’t care about an
 - Use **size `n + 1`** when you need to account for a **base case** like an empty string, no elements selected, or a "0th" state.
 - Use **size `n`** when you only care about the **elements themselves** and don’t need a base case for zero elements.
 
-.
+
+-----
+
+# Problem Types
+
+Dynamic programming (DP) problems can be categorized into different types based on their patterns and structures. Understanding these types helps identify the right approach to solve problems efficiently.
+
+### **1. Subsequence Problems**  
+Find patterns or sequences within a larger sequence using recursion and memoization or iterative DP.  
+
+### **2. Knapsack Problems**  
+Select items with constraints (e.g., capacity or weight) to maximize or minimize a value.  
+
+### **3. Grid/Matrix-Based Problems**  
+Navigate a grid or matrix to find optimal paths, sums, or regions.  
+
+### **4. Partitioning Problems**  
+Divide arrays or strings into parts to minimize/maximize a given function or achieve a goal.  
+
+### **5. Game Theory Problems**  
+Model turn-based games where players make optimal choices.  
+
+### **6. Interval DP Problems**  
+Solve problems involving subranges or intervals of data.  
+
+### **7. Tree-Based DP**  
+Solve problems on tree structures using recursion and memoization on subtrees.  
+
+### **8. Bitmask DP**  
+Work with subsets or combinations using binary representation for states.  
+
+### **9. Linear DP**  
+Solve problems on arrays/lists by considering adjacent or previous states.  
+
+### **10. Probability/Expectation Problems**  
+Calculate probabilities or expected values using state-based DP.  
+
+### **11. Memory Optimization Problems**  
+Optimize memory or space usage by solving problems efficiently.  
+
+### **12. Counting Problems**  
+Count the number of ways or combinations to achieve a goal using recursive or iterative DP.
