@@ -55,3 +55,8 @@ class Solution:
                     dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j + 1], dp[i + 1][j + 1])
 
         return dp[0][0]
+   
+    #We take the minimum because we want to find the smallest number of steps needed to 
+    # change one word into the other. At each point, we can either insert, delete, 
+    # or replace a character. By choosing the smallest option (insert, delete, or replace), 
+    # we ensure we’re making the fewest changes to match the two words.
