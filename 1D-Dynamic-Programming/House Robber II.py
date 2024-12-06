@@ -35,13 +35,19 @@ class Solution:
             rob1= rob2
             rob2=temp
         return rob2
-"Special Case (Single House): If there is only one house (i.e., nums = [x]), then the answer is simply nums[0]. In this case, nums[1:] and nums[:-1] would result in empty lists, so the helper function would return 0. Including nums[0] ensures that if there's only one house, the solution still works correctly by returning the money in that house."
+
+"""Special Case (Single House): If there is only one house (i.e., nums = [x]), 
+then the answer is simply nums[0]. In this case, nums[1:] and nums[:-1] would result in empty lists, 
+so the helper function would return 0. Including nums[0] ensures that if there's only one house, 
+the solution still works correctly by returning the money in that house."
 #To handle this, you break the problem into two scenarios:
 #Rob houses excluding the first house.
 #Rob houses excluding the last house.
 
-"""Why Two Helper Calls?
-Since the houses are arranged in a circle, robbing the first house prevents you from robbing the last house, and robbing the last house prevents you from robbing the first house. So, you split the problem into two subproblems:
+Why Two Helper Calls?
+Since the houses are arranged in a circle, robbing the first house prevents 
+you from robbing the last house, and robbing the last house prevents you from 
+robbing the first house. So, you split the problem into two subproblems:
 Excluding the first house: This is handled by self.helper(nums[1:]).
 Excluding the last house: This is handled by self.helper(nums[:-1]).
 The final solution is the maximum of the three cases:
