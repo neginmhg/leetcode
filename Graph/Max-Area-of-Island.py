@@ -34,14 +34,10 @@ class Solution:
                 return 0
             # Mark the cell as visited
             visit.add((r, c))
-            # Initialize area as 1 for the current cell
-            area = 1
             # Explore all 4 directions (up, down, left, right) and add their areas
-            area += dfs(r + 1, c)
-            area += dfs(r - 1, c)
-            area += dfs(r, c + 1)
-            area += dfs(r, c - 1)
-            return area
+            return (
+                1 + dfs(r + 1, c) + dfs(r - 1, c) + dfs(r, c + 1) + dfs(r, c - 1)
+            )
         
         max_area = 0
         # Traverse each cell in the grid

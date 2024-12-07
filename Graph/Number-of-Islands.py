@@ -21,6 +21,7 @@ Output: 3
 """
 
 from typing import List
+from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -46,3 +47,31 @@ class Solution:
                     dfs(r, c)  # Start a DFS to mark all parts of this island as visited
         
         return num_islands  # Return the total number of islands found
+
+
+    def numIslands_BFS(self, grid: List[List[str]]) -> int:
+        if not grid:
+            return 0
+
+        ROWS, COLS = len(grid), len(grid[0])
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        islands = 0
+
+        def bfs(r, c):
+            q = deque([(r, c)])
+            grid[r][c] = '0'  # Mark as visited by modifying the grid, instead of a VISIT SET
+            while q:
+                row, col = q.popleft()
+                for dr, dc in directions:
+                    nr, nc = row + dr, col + dc
+                    if 0 <= nr < ROWS and 0 <= nc < COLS and grid[nr][nc] == '1':
+                        q.append((nr, nc))
+                        grid[nr][nc] = '0'  # Mark as visited
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == '1':
+                    bfs(r, c)
+                    islands += 1
+
+        return islands
