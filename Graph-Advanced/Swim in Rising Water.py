@@ -39,6 +39,7 @@ from typing import List
 import heapq
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
+        #  Dijkstra's Algorithm = minHeap + BFS + visit set
         N = len(grid)
         #BFS + minHeap + visit set
         visit =set()
