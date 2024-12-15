@@ -1,4 +1,7 @@
-Topological sorting is a linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge \( (u, v) \) from vertex \( u \) to vertex \( v \), \( u \) comes before \( v \) in the ordering. This means that each vertex appears before all vertices to which it has outgoing edges.
+Topological sorting (Kahn's Algorithm) is a linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge \( (u, v) \) from vertex \( u \) to vertex \( v \), \( u \) comes before \( v \) in the ordering. This means that each vertex appears before all vertices to which it has outgoing edges.<br><br>
+<b>Topological orderings are not unique.Based on what node you choose to process the order changes.</b>
+
+<br>
 https://www.youtube.com/watch?v=cIBFEhD77b4
 
 ### Key Points of Topological Sort:
