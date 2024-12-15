@@ -1,6 +1,5 @@
 # leetcode
 
-https://blog.pragmaticengineer.com/my-reading-list/#engineering-career-books
 
 # Mutability in Python
 
