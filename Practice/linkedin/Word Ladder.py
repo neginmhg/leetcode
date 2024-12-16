@@ -69,36 +69,55 @@ class Solution:
 
 
 """
-When working with the Word Ladder problem using the BFS approach described, here are the top points to remember:
+When working with the Word Ladder problem using the BFS approach described,
+here are the top points to remember:
 
 ### 1. **Breadth-First Search (BFS) for Shortest Path**
-   - **Why BFS?** BFS is used because it explores all possible transformations level by level, ensuring that the first time you reach the `endWord`, you've found the shortest transformation sequence.
-   - **Level-based Exploration**: BFS naturally handles shortest path problems by exploring all words one step away from the current word before moving to words two steps away, and so on.
+   - **Why BFS?** BFS is used because it explores all possible transformations level by level, 
+   ensuring that the first time you reach the `endWord`, you've found the shortest transformation 
+   sequence.
+   - **Level-based Exploration**: BFS naturally handles shortest path problems by exploring 
+   all words one step away from the current word before moving to words two steps away, and so on.
 
 ### 2. **Pattern-Based Neighbor Map (Adjacency List)**
-   - **Pattern Definition**: Patterns are formed by replacing each letter of a word with a wildcard (`*`). For example, "hot" generates the patterns `*ot`, `h*t`, and `ho*`.
-   - **Neighbor Map**: An adjacency list (`nei` dictionary) is used where each pattern maps to a list of words that match that pattern. This allows quick lookup of all possible one-letter transformations for any word.
-   - **Precomputation**: Patterns for all words are precomputed once and stored in the `nei` dictionary, optimizing the BFS by avoiding repetitive pattern generation.
+   - **Pattern Definition**: Patterns are formed by replacing each letter of a word with a 
+   wildcard (`*`). For example, "hot" generates the patterns `*ot`, `h*t`, and `ho*`.
+   - **Neighbor Map**: An adjacency list (`nei` dictionary) is used where each pattern maps 
+   to a list of words that match that pattern. This allows quick lookup of all possible 
+   one-letter transformations for any word.
+   - **Precomputation**: Patterns for all words are precomputed once and stored in the `nei` 
+   dictionary, optimizing the BFS by avoiding repetitive pattern generation.
 
 ### 3. **Early Exit Condition**
-   - **End Word Check**: The algorithm immediately returns `0` if the `endWord` is not in the `wordList`, since it's impossible to form a valid transformation sequence.
-   - **Early Termination**: As soon as the `endWord` is found during BFS, the algorithm returns the current transformation length, ensuring the shortest sequence is returned.
+   - **End Word Check**: The algorithm immediately returns `0` if the `endWord` is not in the 
+   `wordList`, since it's impossible to form a valid transformation sequence.
+   - **Early Termination**: As soon as the `endWord` is found during BFS, 
+   the algorithm returns the current transformation length, ensuring the shortest sequence 
+   is returned.
 
 ### 4. **Tracking Visited Words**
    - **Visited Set**: A `visited` set is used to keep track of words that have already been explored. This prevents revisiting nodes, which could cause infinite loops or redundant work, and helps ensure that each word is only processed once.
-   - **Avoid Cycles**: By marking words as visited as soon as they are added to the queue, the algorithm avoids processing the same word multiple times, which improves efficiency.
+   - **Avoid Cycles**: By marking words as visited as soon as they are 
+   added to the queue, the algorithm avoids processing the same word multiple times, 
+   which improves efficiency.
 
 ### 5. **Efficiency Considerations**
-   - **Queue for BFS**: The BFS uses a queue (`deque`) to efficiently pop elements from the front and append new words at the back.
-   - **Preprocessing Overhead**: Although constructing the neighbor map has an upfront cost, it significantly reduces the time complexity during BFS by enabling quick lookups.
+   - **Queue for BFS**: The BFS uses a queue (`deque`) to efficiently pop elements from the 
+   front and append new words at the back.
+   - **Preprocessing Overhead**: Although constructing the neighbor map has an upfront cost, 
+   it significantly reduces the time complexity during BFS by enabling quick lookups.
 
 ### 6. **Edge Cases**
-   - **No Valid Sequence**: The algorithm correctly handles cases where no valid transformation sequence exists by returning `0`.
-   - **Single Transformation**: If `beginWord` is already one letter away from `endWord`, the BFS will correctly return a sequence length of 2.
+   - **No Valid Sequence**: The algorithm correctly handles cases where no valid transformation 
+   sequence exists by returning `0`.
+   - **Single Transformation**: If `beginWord` is already one letter away from `endWord`, 
+   the BFS will correctly return a sequence length of 2.
 
 ### 7. **Scalability**
-   - **Word Length**: The approach works efficiently even for long words, as it processes each word in `O(L * 26)` where `L` is the length of the word, and `26` is the number of possible character replacements.
-   - **Large Word Lists**: While the method scales well with larger word lists, using techniques like Bidirectional BFS can further improve performance in very large datasets.
+   - **Word Length**: The approach works efficiently even for long words, 
+   as it processes each word in `O(L * 26)` where `L` is the length of the word, and `26` is the number of possible character replacements.
+   - **Large Word Lists**: While the method scales well with larger word lists, 
+   using techniques like Bidirectional BFS can further improve performance in very large datasets.
 
 ### Summary
 - **BFS** ensures the shortest path.(queue)

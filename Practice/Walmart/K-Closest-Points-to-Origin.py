@@ -32,15 +32,29 @@ from typing import List
 import heapq
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        minHeap =[]
+        #Ege case: if K == size of points or there's 1 or 0 points
+        if k == len(points) or len(points)==1 or len(points)==0:
+            return points
+        #if points is null
+        if not points:
+            return []
+        hp = []
         for x,y in points:
-            distance= (x**2) +(y**2)
-            minHeap.append([distance,x,y])
-        heapq.heapify(minHeap)
+            d = x**2 +y**2
+            heapq.heappush(hp, [d,x,y])
+
         result=[]
         while k>0:
-            dist, x, y = heapq.heappop(minHeap)
-            k -= 1
+            d,x,y=heapq.heappop(hp)
             result.append([x,y])
+            k-=1
         return result
 
+#Why Sorting Isn't Used:
+#Sorting all points would take O(nlogn), 
+#but using a heap allows us to extract only the necessary k 
+# points after inserting all points, which is more flexible for larger datasets.
+
+
+#Space complexity: O(n)
+#Time Complecity: O(n log n) for push and  O(k log n) for pop = O(n log n) cause k<n

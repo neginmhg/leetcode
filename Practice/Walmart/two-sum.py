@@ -18,20 +18,23 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 """
-
 from typing import List
-
-
 class Solution:
-    def twoSum(self, nums: List[int], target:int) -> List[int]:
-        prevMap={} #storing value:index of first index to i index
+    def twoSum(self, nums:List[int], target:int)->List[int]:
+        prevMap={}  #dictionary {value:index}
         for i, n in enumerate(nums):
-            diff=target-n
+            diff = target-n
             if diff in prevMap:
-                return[i, prevMap[diff]]
+                return [i, prevMap[diff]]
             prevMap[n]=i
         return []
-    
-solution=Solution()
-r=solution.twoSum([1,2,3,4],5)
-print(r)
+
+"""
+Time complexity:O(n) iterate in list once and O(1) lookup on dict
+Space complexity: O(n) in worst case if need to store all in dict
+
+Edge Cases Handled**
+1. Multiple valid pairs: The problem guarantees exactly one solution, so no need to handle duplicates.
+2. Negative numbers: The algorithm works for all integers, including negatives.
+3. Empty or single-element input: Constraints ensure input is valid, so these edge cases don't arise here.
+"""
