@@ -21,6 +21,8 @@ Example 2:
 Input: points = [[3,12],[-2,5],[-4,1]]
 Output: 18
 """
+#Minimum Spanning Tree (MST)
+#Prim's Algorithm or Kruskal's Algorithm
 from typing import List
 import heapq
 class Solution:
