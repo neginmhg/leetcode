@@ -1,18 +1,22 @@
 """
-Given an integer array `nums` and an integer `k`, you need to find the maximum length of a subarray that sums to `k`.
+Given an integer array `nums` and an integer `k`, 
+you need to find the maximum length of a subarray 
+that sums to `k`.
 
 Example 1:
 ```
 Input: nums = [1, -1, 5, -2, 3], k = 3
 Output: 4
-Explanation: The subarray [1, -1, 5, -2] sums to 3, and has a length of 4.
+Explanation: The subarray [1, -1, 5, -2] sums to 3, 
+and has a length of 4.
 ```
 
 Example 2:
 ```
 Input: nums = [-2, -1, 2, 1], k = 1
 Output: 2
-Explanation: The subarray [-1, 2] sums to 1, and has a length of 2.
+Explanation: The subarray [-1, 2] sums to 1, 
+and has a length of 2.
 ```
 
 Constraints:
