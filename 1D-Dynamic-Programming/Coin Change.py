@@ -1,6 +1,10 @@
 """
-You are given an integer array coins representing coins of different denominations (e.g. 1 dollar, 5 dollars, etc) and an integer amount representing a target amount of money.
-Return the fewest number of coins that you need to make up the exact target amount. If it is impossible to make up the amount, return -1.
+You are given an integer array coins representing coins of 
+different denominations (e.g. 1 dollar, 5 dollars, etc) 
+and an integer amount representing a target amount of money.
+Return the fewest number of coins that you need to 
+make up the exact target amount. If it is impossible to 
+make up the amount, return -1.
 You may assume that you have an unlimited number of each coin.
 
 Example 1:
@@ -30,8 +34,20 @@ Constraints:
 from typing import List
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
+        # Edge case 1: Amount is 0
+        if amount == 0:
+            return 0
+        
+        # Edge case 2: No coins available
+        if not coins:
+            return -1
+        
+        # Edge case 3: Amount is smaller than the smallest coin denomination
+        if min(coins) > amount:
+            return -1
+        
         #bottom up start from 0
-        dp = [float('inf')]* (amount+1)
+        dp = [float('inf')]* (amount+1) #storing amounts with min coins
         dp[0]=0
 
         for a in range(1, amount+1):
@@ -41,6 +57,8 @@ class Solution:
         
         return dp[amount] if dp[amount]!= float('inf') else -1
     
+#Time O(n*t)        n is len(coins) and t=amount
+#Space O(t)
 solution=Solution()
 coins = [1,5,10]
 amount = 12

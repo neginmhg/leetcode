@@ -26,7 +26,8 @@ Constraints:
 -104 <= nums[i] <= 104
  
 
-Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?"""
+Follow up: Can you come up with an algorithm that runs 
+in O(n log(n)) time complexity?"""
 from typing import List
 
 class Solution:
@@ -37,3 +38,5 @@ class Solution:
                 if nums[i]<nums[j]:
                     LIS[i]=max(LIS[i], 1+ LIS[j])
         return max(LIS)
+#Time : O (n^2)
+#Space: O(1)

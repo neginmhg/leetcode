@@ -1,7 +1,9 @@
 """
-Given a string s, return the number of palindromic substrings in it.
+Given a string s, return the number of 
+palindromic substrings in it.
 
-A string is a palindrome when it reads the same backward as forward.
+A string is a palindrome when 
+it reads the same backward as forward.
 
 A substring is a contiguous sequence of characters within the string.
 
@@ -41,3 +43,7 @@ class Solution:
                 l-=1
                 r+=1
         return res
+    
+#Time : O (n^2)
+#Space: O(1)
+

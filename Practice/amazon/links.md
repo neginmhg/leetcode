@@ -2,3 +2,6 @@ https://github.com/krishnadey30/LeetCode-Questions-CompanyWise/blob/master/amazo
 
 https://leetracer.com/screener
 
+https://github.com/farneet24/Leetcode-Company-Wise-Questions-Website/blob/master/data/LeetCode-Questions-CompanyWise/amazon_1year.csv
+
+
