@@ -31,22 +31,22 @@ intervals[i].length == 2
 from typing import List
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        # Sort intervals by Start point
+        # 1. Sort intervals by Start point
         intervals.sort(key=lambda i: i[0])  # Step 1
         
-        # Output result which is a list of lists
+        #2. Output result which is a list of lists
         output = [intervals[0]]  # Step 2
 
-        # Loop through intervals and merge
+        #3. Loop through intervals and merge
         for interval in intervals[1:]:  # Step 3
             start, end = interval[0], interval[1]
             lastEnd = output[-1][1]
             if start <= lastEnd:
-                # Overlap
+                # Overlap: update last interval
                 output[-1][1] = max(lastEnd, end)
             else:
                 # No overlap
-                # Just add to output
+                # Just add to output as new interval
                 output.append([start, end])
                 
         return output  # Step 4

@@ -43,5 +43,10 @@ class Solution:
         return not stack
         """If the stack is empty, not stack evaluates to True, indicating that the input string is valid. If the stack is not empty, not stack evaluates to False, indicating that there are unmatched opening brackets in the input string, making it invalid."""
     
+""""
+Time complexity: O(n)
+Space complexity: O(n)
+"""
+
 s=Solution()
 print(s.isValid("()[]{}"))

@@ -1,5 +1,8 @@
 """
-You are tasked with generating a generation graph based on a list of relationships where each relationship describes a parent-child connection. Each node in the graph represents a person, and the edges represent parent-child relationships.
+You are tasked with generating a generation graph based on a 
+list of relationships where each relationship describes a 
+parent-child connection. Each node in the graph represents 
+a person, and the edges represent parent-child relationships.
 
 Problem Requirements:
 

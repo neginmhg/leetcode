@@ -13,6 +13,7 @@ Example 3:
 Input: nums = [1,1,1,3,3,4,3,2,4,2]
 Output: true
 """
+from typing import List
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         dups = set()

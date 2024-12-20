@@ -20,6 +20,7 @@ Example 3:
 Input: nums = [1,2,3]
 Output: 0
 """
+from typing import List
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         freq={} #to store the frequency of each number

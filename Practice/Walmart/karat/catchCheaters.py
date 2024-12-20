@@ -28,7 +28,7 @@ class Solution:
         for word in words:
             wordCounter= Counter(word)
             ## Use subtraction of Counters to check if the word can be formed
-            if not (wordCounter-scrambledCounter):
+            if not (wordCounter-scrambledCounter):  #When you subtract one Counter object from another, the result is a new Counter object that contains only the positive differences in counts.
                 return word
             
         return ""

@@ -1,9 +1,12 @@
 """
-The Mini Game problem from Karat involves simulating a simple game where players take turns to make moves on a game board. The objective is to determine the winner based on the game's rules.
+The Mini Game problem from Karat involves simulating a 
+simple game where players take turns to make moves 
+on a game board. The objective is to determine the winner based on the game's rules.
 
 Problem Statement:
 
-You are tasked with simulating a simple game played on a 3x3 board. The game is played by two players who take turns to place their marks ('X' and 'O') on the board. The first player to align three of their marks horizontally, vertically, or diagonally wins the game.
+You are tasked with simulating a simple game played on a 3x3 board. The game is played by two players who take turns to place their marks ('X' and 'O') on the board. 
+The first player to align three of their marks horizontally, vertically, or diagonally wins the game.
 
 Input:
 
