@@ -50,3 +50,7 @@ class Solution:
                 if dp[i]:
                     break
         return dp[0]
+
+#Given a string and bunch of words, can the string be created by words?
+
+#DP: Iterate from the last character in s, then for each word in the dictionary, check if s[i:i+len(word)] == word, and if it matches, update the DP array to reflect that the substring up to i can be segmented.
