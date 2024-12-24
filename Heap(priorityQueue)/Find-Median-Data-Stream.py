@@ -39,7 +39,7 @@ class MedianFinder:
         self.small, self.large =[],[]   #small is maxHeap, large is minHeap
     def addNum(self, num: int) -> None:
         heapq.heappush(self.small, -1* num)
-        #make sure every num in small is <= num in large
+        #make sure TOP num in small is <= num in large
         if (self.small and self.large and -1*self.small[0]> self.large[0]):
             val=-1 * heapq.heappop(self.small)
             heapq.heappush(self.large, val)
@@ -49,7 +49,7 @@ class MedianFinder:
             val=-1*heapq.heappop(self.small) #pop from small
             heapq.heappush(self.large,val)  #push to large
         
-        if len(self.large) > len(self.small) +1:#if large gets too big
+        if len(self.large) > len(self.small2) +1:#if large gets too big
             val=heapq.heappop(self.large)#pop from large
             heapq.heappush(self.small,-1*val)#push to small
     
