@@ -68,24 +68,26 @@ Example
         "C3": {"A1", "B2", "B3"}  # Tracks dependency for updates
     }
 """
+from typing import List
 class Excel:
-
     def __init__(self, height: int, width: str):
         #Store cell values
-        self.grid ={}           #colRow : int value
+        self.grid ={}           #(r,c) : int value ==> {(2, 'B'): 6, (4, 'D'): 6}
         #Store dependencies for sum formula
-        self.dependencies = {}      #colRow: list of colRows
+        self.dependencies = {}      #(r,c): list of str  ==>  {(4, 'D'): ['A1', 'A1:B2']}
         # Calculate the max column as an integer (A = 1, B = 2, ...)
         self.maxCol = ord(width)-ord('A')+1
-    def set(self, row: int, column: str, val: int) -> None:
+    def set(self, row: int, column: str, val: int) -> None
+        #delete it from dependency
         if (row, column) in self.dependencies:
             del self.dependencies[(row,column)]
         self.grid[(row, column)]=val
 
     def get(self, row: int, column: str) -> int:
+        #get it from dependency
         if (row, column) in self.dependencies:
             return self.calculateSum(self.dependencies[(row,column)])
-        return self.grid.get([(row,column)],0)
+        return self.grid.get((row,column),0)
     def sum(self, row: int, column: str, numbers: List[str]) -> int:
         self.dependencies[(row,column)] = numbers
         total = self.calculateSum(numbers)
@@ -113,3 +115,16 @@ class Excel:
 # obj.set(row,column,val)
 # param_2 = obj.get(row,column)
 # param_3 = obj.sum(row,column,numbers)
+
+
+obj = Excel(5, 'E')
+print(obj.dependencies)
+print(obj.grid)
+print(obj.maxCol)
+obj.set(2,'B',6)
+param_2 = obj.get(2,'B')
+param_3 = obj.sum(4,'D',["A1", "A1:B2"])
+
+print(obj.dependencies)
+print(obj.grid)
+print(obj.maxCol)
