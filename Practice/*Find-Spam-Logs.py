@@ -1,4 +1,6 @@
 """
+deal path interview
+
 You are given a list of log entries, where each log entry contains an IP address, a user ID, and a timestamp. Your task is to identify IP addresses that have been accessed within a 1-second window. These IP addresses are considered spam.
 Task:
 Write a function find_spam_ips(logs: List[str]) -> List[str] that returns a list of IP addresses that have been accessed within 1 seconds. The IP addresses should be returned in no particular order.
@@ -7,6 +9,7 @@ Constraints:
 The input list logs will contain between 1 and 10^5 log entries.
 Timestamps are sorted in non-decreasing order.
 Each log entry has the format "IP_ADDRESS, USER_ID,TIMESTAMP", where IP_ADDRESS and USER_ID are alphanumeric strings, TIMESTAMP is a non-negative integer.
+
 """
 from typing import List
 class Solution:
