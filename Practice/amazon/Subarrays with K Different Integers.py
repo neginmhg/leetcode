@@ -1,4 +1,4 @@
-"""
+""" [HARD]
 Given an integer array nums and an integer k, return the number of good subarrays of nums.
 
 A good array is an array where the number of different integers in that array is exactly k.
@@ -53,3 +53,11 @@ class Solution:
             
 
 #both space and time : O(n)
+"""
+l_near to r:
+    This is the tightest valid window containing exactly k distinct integers.
+    By incrementing l_near, we ensure that there are no unnecessary duplicates of the leftmost element in the window.
+l_far to r:
+    This is the widest valid window containing exactly k distinct integers.
+    l_far stays as far left as possible while still maintaining the condition of exactly k distinct integers.        
+"""
