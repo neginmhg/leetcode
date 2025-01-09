@@ -38,42 +38,47 @@ Let's check the substring "abac". There is only one character outside of this su
 
  
 """
+from collections import Counter
 
 class Solution:
     def maxSubstringLength(self, s: str) -> int:
         n = len(s)
-        res = -1
-        totalCount = [0] * 26
+        longest = -1
+        totalC = Counter(s)  # Count total occurrences of each character in the string
 
-        # Count total number of characters in the string
-        for char in s:
-            totalCount[ord(char) - ord('a')] += 1
-
-        for i in range(1, 27):  # i is the number of unique chars in the substring
-            valid = 0
+        #for each fixed window size
+        for windowSize in range(1, len(totalC) + 1):  # Only loop up to the unique characters in the string
+            res = 0
             unique = 0
-            left = 0
-            count = [0] * 26
+            l = 0
+            #window count 
+            count = Counter()  # Counter to track characters in the current window
+            print(windowSize)
+            for r in range(n):
+                newChar = s[r]
+                count[newChar] += 1
 
-            for right in range(n):
-                char_right = ord(s[right]) - ord('a')
-                count[char_right] += 1
-
-                if count[char_right] == 1:
+                if count[newChar] == 1:
                     unique += 1  # We've seen a new character
-                if count[char_right] == totalCount[char_right]:
-                    valid += 1  # All occurrences of this character are in the substring
+                if count[newChar] == totalC[newChar]:
+                    res += 1  # All occurrences of this char found
 
-                while unique > i:
-                    char_left = ord(s[left]) - ord('a')
-                    count[char_left] -= 1
-                    if count[char_left] == 0:
-                        unique -= 1  # We lost one of the new chars
-                    if count[char_left] == totalCount[char_left] - 1:
-                        valid -= 1  # Not all of the character is in this substring anymore
-                    left += 1
+                while unique > windowSize:  # Shrink window if unique characters exceed `i`
+                    char_l = s[l]
+                    count[char_l] -= 1
+                    if count[char_l] == 0:
+                        unique -= 1  # We lost one of the unique characters
+                    if count[char_l] == totalC[char_l] - 1:
+                        res -= 1  # Not all occurrences of the character are in the window
+                    l += 1
 
-                if valid == i and right - left + 1 != n:  # Make sure it's not the entire string
-                    res = max(res, right - left + 1)
+                if res == windowSize and r - l + 1 != n:  # Ensure it's not the entire string
+                    print("res found "+str(res)+ s[l:r+1])
+                    longest = max(longest, r - l + 1)
 
-        return res
+        return longest
+
+
+s = Solution()
+out =s.maxSubstringLength("abacd")
+print(out)
