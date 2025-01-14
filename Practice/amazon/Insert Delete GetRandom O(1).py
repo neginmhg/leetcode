@@ -31,12 +31,12 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 
 """
-
+import random
 class RandomizedSet:
 
     def __init__(self):
         self.lst=[]
-        self.map =defaultdict(int)
+        self.map =defaultdict(int)  #{val : index}
 
     def insert(self, val: int) -> bool:
         if val in self.lst:
@@ -63,7 +63,7 @@ class RandomizedSet:
             return False
 
     def getRandom(self) -> int:
-        return choice(self.lst)
+        return random.choice(self.lst)
 
 
 # Your RandomizedSet object will be instantiated and called as such:

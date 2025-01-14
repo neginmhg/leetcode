@@ -1,5 +1,4 @@
 """
-Problem Statement:
 Amazon is offering a discount on every purchase of a pair of products whose price sum is divisible by X.
 
 Given the price of n products in the store, find the number of pairs (i, j) where i < j and price[i] + price[j] is divisible by X.
@@ -43,6 +42,7 @@ class Solution:
             complement  = (x-remainder)%x
 
             #2. add count of complement to result
+            #The count of such complements will give the number of valid pairs up to that point.
             resultPairs += remainderCount[complement]
 
             #3. update count of remainder 
