@@ -39,7 +39,7 @@ class Solution:
                 dist = abs(x1-x2) +abs(y1-y2)
                 adj[i].append([dist,j])
                 adj[j].append([dist,i])
-
+        print(adj)
         # Prim's Algorithm Part
         res =0
         visit= set()
@@ -57,3 +57,7 @@ class Solution:
 
 
         return res
+    
+s = Solution()
+r = s.minCostConnectPoints([[0,0],[2,2],[3,10],[5,2],[7,0]])
+print( r)

@@ -52,6 +52,7 @@ from itertools import combinations
 class Solution:
     def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:        
         users = defaultdict(list)
+        #turn them into list of tuples
         all= list(zip(username, timestamp, website))
         #This step is necessary to ensure that for each user, their 
         # website visits are sorted in chronological order.
@@ -60,7 +61,6 @@ class Solution:
         sortedAll = sorted(all, key = lambda x: (x[0],x[1]))
         for user, time, site in sortedAll: 
             users[user].append(site)
-
         patterns = {}       # {('home', 'maps', 'home'): 1 , .....}
 
         for user, sites in users.items():
