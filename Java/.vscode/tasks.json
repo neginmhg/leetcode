@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Java Files",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-d", "bin",       // Output directory for .class files
+                "src/*.java"       // All .java files inside src folder
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$javac"],
+            "detail": "Generated task to compile Java files"
+        }
+    ]
+}
