@@ -21,7 +21,7 @@ public class basics{
         //[10, 15, 20]
         al.remove(0);    //remove by index
         //[15, 20]
-        int res = al.get(1); //res=20
+        //al.get(1); //res=20
         System.out.println("Size: " + al.size()); //size=2
         System.out.println("Contains 20: " + al.contains(20)); //true
         al.clear();
@@ -169,7 +169,7 @@ public class basics{
         System.out.println("Lowercase: " + str1.toLowerCase());  // Output: hello
         
         // String Comparison (equals and ==)
-        String str5 = "Hello";
+        //String str5 = "Hello";
         String str6 = new String("Hello");
         System.out.println("str1 == str2? " + (str1 == str6));  // false, because they are different objects
         System.out.println("str1.equals(str2)? " + str1.equals(str6));  // true, because they have the same content
@@ -189,7 +189,7 @@ public class basics{
         
         // String Pool: Demonstrating String interning
         String str7 = "Hello";
-        String str8 = "Hello";
+        //String str8 = "Hello";
         System.out.println("str1 == str2 (same reference in pool)? " + (str1 == str7));  // true, both refer to the same string in the pool
         
         // Formatting Strings

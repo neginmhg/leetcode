@@ -1,4 +1,4 @@
-import com.example.testing_001.model.Course;
+/*import com.example.testing_001.model.Course;
 import com.example.testing_001.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -6,12 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
  
-import java.util.List;
+import java.util.List;  */
 //https://www.geeksforgeeks.org/spring-mvc-crud-with-example/
 // CourseService is an interface 
 // CourseServiceImpl implements CourseService
     //has @autoqired courseRepository
     //has @override all CRUD operations
+
+
+
+/* 
 @Controller
 public class CourseController{
 
@@ -35,8 +39,9 @@ public class CourseController{
     @DeleteMapping("/delete/{id}")
     public String deleteCourse(@PathVariable (value="id") long id){
         //call service delete function
-        this.cService.deleteCourse(id)
+        this.cService.deleteCourse(id);
         return "redicrect:/"
     }
 
 }
+*/

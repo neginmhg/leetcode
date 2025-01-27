@@ -17,6 +17,7 @@ from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        #cols {key: colNumber , value: set(numbers)}
         cols= collections.defaultdict(set)
         rows=collections.defaultdict(set)
         squares=collections.defaultdict(set)
