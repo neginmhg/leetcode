@@ -25,8 +25,8 @@ Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
 Output: 4
  */
 
-class Solution {
-    public int findKthLargest(int[] nums, int k) {
+class FindKthLargest {
+    public int FindKthLargestf(int[] nums, int k) {
       int targetIndex = nums.length - k;
         return quickSelect(nums,0, nums.length-1 ,targetIndex);
     }
