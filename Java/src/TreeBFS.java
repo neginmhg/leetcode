@@ -65,7 +65,7 @@ class BFS {
 }
 
 // Main class to test the functionality
-public class Main {
+public class TreeBFS {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root = TreeNode.insert(root, 12);

@@ -13,7 +13,7 @@ class TreeNode {
     }
 }
 
-class Solution {
+class TreePreInOrder {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if (preorder.length == 0 || inorder.length == 0) {
             return null;
@@ -45,12 +45,11 @@ class Solution {
 
         return root;
     }
-}
+
 
 // Main class for testing
-public class Main {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        TreePreInOrder solution = new TreePreInOrder();
 
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
@@ -77,5 +76,5 @@ public class Main {
                 System.out.print("null ");
             }
         }
-    }
+}
 }

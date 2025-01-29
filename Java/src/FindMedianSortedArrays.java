@@ -43,5 +43,6 @@ public class FindMedianSortedArrays {
 
 
         }
+        return -1.0;
     }
 }
