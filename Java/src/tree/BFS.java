@@ -29,7 +29,7 @@ class TreeNode {
 }
 
 // BFS class with a method to perform level-order traversal
-class BFS {
+class BFST {
     public List<List<Integer>> bfs(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
@@ -66,7 +66,7 @@ class BFS {
 }
 
 // Main class to test the functionality
-public class TreeBFS {
+public class BFS {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root = TreeNode.insert(root, 12);
@@ -75,7 +75,7 @@ public class TreeBFS {
         root = TreeNode.insert(root, 22);
         root = TreeNode.insert(root, 13);
 
-        BFS search = new BFS();
+        BFST search = new BFST();
         System.out.println(search.bfs(root));
     }
 }
