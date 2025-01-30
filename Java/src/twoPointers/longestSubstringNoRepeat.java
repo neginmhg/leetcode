@@ -1,3 +1,4 @@
+package twoPointers;
 import java.util.HashSet;
 
 class longestSubstringNoRepeat {

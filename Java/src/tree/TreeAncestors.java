@@ -1,6 +1,16 @@
+package tree;
 import java.util.*;
-
+/* 
 public class TreeAncestors {
+    class Node{
+        int data;
+        Node left;
+        Node right;
+       public Node(int data){
+           this.data =data;
+           left=right=null;
+       }
+   }
     public  List<Integer> res ;
     public TreeAncestors(){
         res = new ArrayList<>();
@@ -41,3 +51,4 @@ public class TreeAncestors {
         System.out.println(ta.getRes());
     }
 }
+*/

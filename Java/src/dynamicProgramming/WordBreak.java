@@ -1,10 +1,13 @@
+package dynamicProgramming;
 import java.util.*;
 
 public class WordBreak {
-    public boolean wordBreakf(String s, List<String> wordDict) {
+    public static boolean wordBreakf(String s, List<String> wordDict) {
         //create a dp array with size+1
         boolean[] dp = new boolean[s.length()+1];
-
+        for(int i=0;i<s.length()+1;i++){
+            dp[i] =false;
+        }
         //base case: empty string
         dp[s.length()]=true;
 
@@ -25,5 +28,13 @@ public class WordBreak {
 
 
 
+    }
+
+    public static void main(String[] args){
+        List<String> list = new ArrayList<>();
+        list.add("leet");
+        list.add("code");
+        boolean res = wordBreakf("leetcode", list);
+        System.out.println(res);
     }
 }

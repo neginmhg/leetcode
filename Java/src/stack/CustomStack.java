@@ -1,3 +1,5 @@
+package stack;
+//type:stack
 import java.util.*;
 public class CustomStack {
     //fields

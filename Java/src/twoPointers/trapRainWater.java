@@ -1,3 +1,4 @@
+package twoPointers;
 import java.util.PriorityQueue;
 
 class trapRainWater {

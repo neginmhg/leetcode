@@ -1,3 +1,6 @@
+package backtracking;
+//type:backtracking
+
 import java.util.*;
 
 
@@ -16,7 +19,8 @@ class CombinationSum {
 
         //base case
         if(sum==target){
-            //When we call new ArrayList<>(current), we are creating a new copy of the current list at that moment. This ensures that res stores a separate copy of the list, not a reference to current.
+            //When we call new ArrayList<>(current), 
+            //we are creating a new copy of the current list at that moment. This ensures that res stores a separate copy of the list, not a reference to current.
             res.add(new ArrayList<>(current));
             return;
         }

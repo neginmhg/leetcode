@@ -1,3 +1,4 @@
+package binarySearch;
 public class FindMedianSortedArrays {
     public double findMedianSortedArraysf(int[] nums1, int[] nums2) {
         int[] A = nums1;
