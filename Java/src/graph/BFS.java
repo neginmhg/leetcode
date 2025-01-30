@@ -1,4 +1,6 @@
+package graph;
 import java.util.*;
+
 public class BFS {
     public  List<Integer> traverse(int[][] grid){
         List<Integer> res = new ArrayList<>();
